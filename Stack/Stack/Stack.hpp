@@ -13,4 +13,5 @@ public:
 	void push(int);
 	void pop(int);
 	int top(int) const;
+	bool empty() const;
 };
