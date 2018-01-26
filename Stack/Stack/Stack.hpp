@@ -1,6 +1,5 @@
 #pragma once
 
-
 class Stack
 {
 	static constexpr int EMPTY = -1;
@@ -14,4 +13,6 @@ public:
 	void pop(int);
 	int top(int) const;
 	bool empty() const;
+	bool full() const;
+	void print() const;
 };
