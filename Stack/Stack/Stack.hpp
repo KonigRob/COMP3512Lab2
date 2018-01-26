@@ -11,4 +11,5 @@ class Stack
 public:
 	Stack() : top_of_index(EMPTY) {}
 	void push(int);
+	void pop(int);
 };
