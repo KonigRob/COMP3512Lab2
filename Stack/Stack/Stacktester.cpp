@@ -11,8 +11,7 @@ int main()
 {
 	Stack myStack;
 	default_random_engine generator(time(0));
-	uniform_real_distribution<double> distrubition(0, 10);
-	
+	uniform_real_distribution <double> distrubition(0, 10);
 
 	int randomArr[11];
 
