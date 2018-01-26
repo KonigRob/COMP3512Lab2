@@ -1,4 +1,7 @@
 #include "iostream"
+#include "iomanip"
+#include "random"
+#include "ctime"
 
 #include "Stack.hpp"
 
@@ -7,30 +10,21 @@ using namespace std;
 int main()
 {
 	Stack myStack;
+	default_random_engine generator(time(0));
+	uniform_real_distribution<double> distrubition(0, 10);
 	
-	cout << "adding items directly to the stack" << endl;
-	cout << "adding 11 to index: " << myStack.getIndex() << endl;
-	myStack.push(11);
-	cout << "adding 35 to index: " << myStack.getIndex() << endl;
-	myStack.push(35);
-	cout << "adding 24 to index: " << myStack.getIndex() << endl;
-	myStack.push(24);
-	cout << "adding 56 to index: " << myStack.getIndex() << endl;
-	myStack.push(56);
-	cout << "adding 46 to index: " << myStack.getIndex() << endl;
-	myStack.push(46);
-	cout << "adding 1 to index: " << myStack.getIndex() << endl;
-	myStack.push(1);
-	cout << "adding 98 to index: " << myStack.getIndex() << endl;
-	myStack.push(98);
-	cout << "adding 176 to index: " << myStack.getIndex() << endl;
-	myStack.push(176);
-	cout << "adding 94 to index: " << myStack.getIndex() << endl;
-	myStack.push(94);
-	cout << "adding 52 to index: " << myStack.getIndex() << endl;
-	myStack.push(52);
 
-	cout << "printing out Stack" << endl;
+	int randomArr[11];
+
+	cout << "adding items directly to the stack" << endl;
+	for (int i = 0; i < size(randomArr); i++) {
+		double myRandom = distrubition(generator);
+		randomArr[i] = myRandom;
+		cout << setw(8) << "Adding: " << randomArr[i] << " to index: " << myStack.getIndex() << endl;
+		myStack.push(randomArr[i]);
+	}
+
+	cout << "printing out Stack" << endl << endl;
 
 	myStack.print();
 
