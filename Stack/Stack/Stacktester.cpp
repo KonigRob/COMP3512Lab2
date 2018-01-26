@@ -1,5 +1,6 @@
-#include "iostream"
-#include "iomanip"
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
 #include "Stack.hpp"
 
 using namespace std;
@@ -8,15 +9,15 @@ int main()
 {
 	Stack myStack;
 	
-	int TWENTY = 20;
-	const int NEIN = 9;
+
 	char selection;
 
 	while (1) 
 	{
 		cout << "MENU" << endl;
 		cout << "p or P for push" << endl;
-		cout << "a or A for auto fill" << endl;
+		cout << "a or A for auto random fill" << endl;
+		cout << "l or L for auto fill" << endl;
 		cout << "o or o for pop" << endl;
 		cout << "t or T for top" << endl;
 		cout << "m or M for empty" << endl;
@@ -38,6 +39,10 @@ int main()
 			myStack.addRandom();
 			cout << "Random values added to the stack" << endl;
 			break;
+		case 'l':
+		case 'L':
+			myStack.addFull();
+			cout << "Values added" << endl;
 		case 'o':
 		case 'O':
 			myStack.pop();
@@ -72,21 +77,23 @@ int main()
 			break;
 		case 'r':
 		case 'R':
-			myStack.print();
+			if (!myStack.empty()) {
+				myStack.print();
+			}
+			else {
+				cout << "Nothing to print, Error" << endl;
+			}
 			break;
 		case 'q':
 		case 'Q':
 			return 0;
 		default: cout << "\n Invalid selection";
+
 		}
 
 
 
-		/*//adding 11 to show that it triggers a edge case
-		for (int i = TWENTY; i > NEIN; i--) {
-		cout << "adding: " << i << " to index: " << myStack.getIndex() << endl;
-		myStack.push(i);
-		}*/
+		
 
 
 		//system("pause");

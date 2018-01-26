@@ -17,4 +17,5 @@ public:
 	bool full() const;
 	void print() const;
 	void addRandom();
+	void addFull();
 };
