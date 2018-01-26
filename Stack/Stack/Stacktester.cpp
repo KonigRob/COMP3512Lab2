@@ -1,8 +1,5 @@
 #include "iostream"
 #include "iomanip"
-#include "random"
-#include "ctime"
-
 #include "Stack.hpp"
 
 using namespace std;
@@ -10,76 +7,89 @@ using namespace std;
 int main()
 {
 	Stack myStack;
-	default_random_engine generator(time(0));
-	uniform_real_distribution <double> distrubition(0, 10);
-
-	int randomArr[11];
+	
 	int TWENTY = 20;
 	const int NEIN = 9;
 	char selection;
-	
 
-	cin >> selection;
-	switch (selection)
+	while (1) 
 	{
-	case 'pu':
-	case 'PU':
-		int entry;
-		cin >> entry;
-		myStack.push(entry);
-		break;
-	case 'pr':
-	case 'PR': 
-		myStack.print();
-		break;
-	case 'po':
-	case 'PO':
-		myStack.pop();
-		break;
-	case 'top':
-	case 'TOP':
-		myStack.top();
-		break;
-	case 'em':
-	case 'EM':
+		cout << "MENU" << endl;
+		cout << "p or P for push" << endl;
+		cout << "a or A for auto fill" << endl;
+		cout << "o or o for pop" << endl;
+		cout << "t or T for top" << endl;
+		cout << "m or M for empty" << endl;
+		cout << "f or F for full" << endl;
+		cout << "r or R for print" << endl;
+		cout << "q or Q for quit" << endl;
 
-		myStack.empty();
-		break;
-	case 'fu':
-	case 'FU':
-		myStack.full();
-		break;
-	case 'qu':
-	case 'QU':
-		return 0;
-	default: cout << "\n Invalid selection";
-	}
+		cin >> selection;
+		switch (selection)
+		{
+		case 'p':
+		case 'P':
+			int entry;
+			cin >> entry;
+			myStack.push(entry);
+			break;
+		case 'a':
+		case 'A':
+			myStack.addRandom();
+			cout << "Random values added to the stack" << endl;
+			break;
+		case 'o':
+		case 'O':
+			myStack.pop();
+			cout << "popped of the top of the stack" << endl;
+			break;
+		case 't':
+		case 'T':
+			if (myStack.top() != -1) {
+				cout << "the top of the stack is: " << myStack.top() << endl;
+			}
+			else {
+				cout << "error" << endl;
+			}
+			break;
+		case 'm':
+		case 'M':
+			if (myStack.empty()) {
+				cout << "The stack is empty" << endl;
+			}
+			else {
+				cout << "The stack is not empty" << endl;
+			}
+			break;
+		case 'f':
+		case 'F':
+			if (myStack.full()) {
+				cout << "The stack is empty" << endl;
+			}
+			else {
+				cout << "The stack is not empty" << endl;
+			}
+			break;
+		case 'r':
+		case 'R':
+			myStack.print();
+			break;
+		case 'q':
+		case 'Q':
+			return 0;
+		default: cout << "\n Invalid selection";
+		}
 
-	cout << "adding items directly to the stack" << endl;
-	for (int i = 0; i < size(randomArr); i++) {
-		double myRandom = distrubition(generator);
-		randomArr[i] = myRandom;
-		cout << setw(8) << "Adding: " << randomArr[i] << " to index: " << myStack.getIndex() << endl;
-		myStack.push(randomArr[i]);
-	}
 
-	/*//adding 11 to show that it triggers a edge case
-	for (int i = TWENTY; i > NEIN; i--) {
+
+		/*//adding 11 to show that it triggers a edge case
+		for (int i = TWENTY; i > NEIN; i--) {
 		cout << "adding: " << i << " to index: " << myStack.getIndex() << endl;
 		myStack.push(i);
-	}*/
-
-	cout << "removing the top off the stack" << endl;
-	myStack.pop();
-	
+		}*/
 
 
-
-	cout << "printing out Stack" << endl << endl;
-
-	myStack.print();
-
-	system("pause");
-
+		//system("pause");
+	}
 	return 0;
 }
