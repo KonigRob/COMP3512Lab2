@@ -12,4 +12,5 @@ public:
 	Stack() : top_of_index(EMPTY) {}
 	void push(int);
 	void pop(int);
+	int top(int) const;
 };

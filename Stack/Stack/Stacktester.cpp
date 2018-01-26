@@ -1,6 +1,11 @@
+#include "Stack.hpp"
 
+using namespace std;
 
-int main(int argc, const char * argv[])
+int main()
 {
+	Stack myStack;
+	//myStack.push;
+
 	return 0;
 }
