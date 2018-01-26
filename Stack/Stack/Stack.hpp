@@ -3,11 +3,12 @@
 
 class Stack
 {
-	int stckarr[10];
+	static constexpr int EMPTY = -1;
+	static constexpr int TEN = 10;
+	int stckarr[TEN];
 	int top_of_index;
 
-	Stack()
-	{
-		top_of_index = -1;
-	}
+public:
+	Stack() : top_of_index(EMPTY) {}
+	void push(int);
 };
