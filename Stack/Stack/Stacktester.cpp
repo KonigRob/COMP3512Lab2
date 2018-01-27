@@ -7,9 +7,8 @@ using namespace std;
 
 int main()
 {
-	Stack myStack;
+	Stack myStack1{};
 	
-
 	char selection;
 
 	while (1) 
@@ -24,71 +23,72 @@ int main()
 		cout << "f or F for full" << endl;
 		cout << "r or R for print" << endl;
 		cout << "q or Q for quit" << endl;
+		cout << "w or W for printing the other one" << endl;
 
 		cin >> selection;
-		switch (selection)
-		{
-		case 'p':
-		case 'P':
+		if (selection == 'p' || selection == 'P') {
 			int entry;
 			cin >> entry;
-			myStack.push(entry);
-			break;
-		case 'a':
-		case 'A':
-			myStack.addRandom();
+			myStack1.push(entry);
+		}
+		else if (selection == 'a' || selection == 'A') {
+			myStack1.addRandom();
 			cout << "Random values added to the stack" << endl;
-			break;
-		case 'l':
-		case 'L':
-			myStack.addFull();
+		} 
+		else if (selection == 'l' || selection == 'L') {
+			myStack1.addFull();
 			cout << "Values added" << endl;
-		case 'o':
-		case 'O':
-			myStack.pop();
+		}
+		else if (selection == 'o' || selection == 'O') {
+			myStack1.pop();
 			cout << "popped of the top of the stack" << endl;
-			break;
-		case 't':
-		case 'T':
-			if (myStack.top() != -1) {
-				cout << "the top of the stack is: " << myStack.top() << endl;
+		}
+		else if (selection == 't' || selection == 'T') {
+			if (myStack1.top() != -1) {
+				cout << "the top of the stack is: " << myStack1.top() << endl;
 			}
 			else {
 				cout << "error" << endl;
 			}
-			break;
-		case 'm':
-		case 'M':
-			if (myStack.empty()) {
+		}
+		else if (selection == 'M' || selection == 'M') {
+			if (myStack1.empty()) {
 				cout << "The stack is empty" << endl;
 			}
 			else {
 				cout << "The stack is not empty" << endl;
 			}
-			break;
-		case 'f':
-		case 'F':
-			if (myStack.full()) {
+		}
+		else if (selection == 'f' || selection == 'F') {
+			if (myStack1.full()) {
 				cout << "The stack is empty" << endl;
 			}
 			else {
 				cout << "The stack is not empty" << endl;
 			}
-			break;
-		case 'r':
-		case 'R':
-			if (!myStack.empty()) {
-				cout << myStack;
+		}
+		else if (selection == 'r' || selection == 'R') {
+			if (!myStack1.empty()) {
+				cout << myStack1;
 			}
 			else {
 				cout << "Nothing to print, Error" << endl;
 			}
-			break;
-		case 'q':
-		case 'Q':
+		}
+		else if (selection == 'q' || selection == 'Q') {
 			return 0;
-		default: cout << "\n Invalid selection";
-
+		}
+		else if (selection == 'w' || selection == 'W') {
+			Stack myStack2(myStack1);
+			if (!myStack2.empty()) {
+				cout << myStack2;
+			}
+			else {
+				cout << "Nothing to print, Error" << endl;
+			}
+		}
+		else {
+			cout << "\n Invalid selection";
 		}
 	}
 	return 0;
