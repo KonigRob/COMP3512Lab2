@@ -78,7 +78,7 @@ int main()
 		case 'r':
 		case 'R':
 			if (!myStack.empty()) {
-				myStack.print();
+				cout << myStack;
 			}
 			else {
 				cout << "Nothing to print, Error" << endl;
