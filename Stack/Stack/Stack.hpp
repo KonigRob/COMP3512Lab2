@@ -10,12 +10,12 @@ private:
 	static constexpr int TEN = 10;
 	int stckarr[TEN];
 	int top_of_index;
+	size_t array_size;
+	int * newArrayCopy;
 
 public:
 	Stack() : top_of_index(EMPTY) {}
 	inline int getIndex() { return top_of_index + 1; }
-	//inline int getStckarr() { return stckarr[TEN]; }
-	//inline int getTop() { return top_of_index; }
 	void push(int);
 	void pop();
 	int top() const;
@@ -26,4 +26,8 @@ public:
 	void addFull();
 
 	friend ostream& operator<<(ostream& out, const Stack& stack);
+	Stack& operator=(Stack);
+	Stack(const Stack& other) : array_size{ other.array_size }, newArrayCopy{ array_size ? new int[array_size] : nullptr} {
+
+	}
 };
